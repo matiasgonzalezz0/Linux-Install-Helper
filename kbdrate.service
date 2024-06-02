@@ -1,0 +1,12 @@
+[Unit]
+Description=Keyboard repetition velocity in tty
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+StandardInput=tty
+StandardOutput=tty
+ExecStart=/usr/bin/kbdrate -s -d 600 -r 33
+ 
+[Install]
+WantedBy=multi-user.target
