@@ -1,0 +1,23 @@
+# WM utilities
+wlogout
+wallust-git
+
+# Compression
+rar
+
+# Applications
+spotify
+vesktop-bin
+
+# Themes
+catppuccin-gtk-theme-mocha
+
+# Office
+onlyoffice-bin
+
+# Virtual Machines
+virtualbox-ext-oracle
+
+# Terminal utilities
+gojq
+cava

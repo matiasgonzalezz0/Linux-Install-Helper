@@ -1,0 +1,108 @@
+# Network
+network-manager-applet
+wpa_supplicant
+net-tools
+wireless_tools
+
+# Bluetooth
+bluez
+bluez-utils
+blueman
+
+# WM utilities
+polkit-gnome
+waybar
+wl-clipboard
+grim
+slurp
+rofi-wayland
+swaync
+hyprpaper
+kitty
+xdg-user-dirs
+thunar
+thunar-archive-plugin
+xdg-desktop-portal-hyprland
+xorg-xwayland
+
+# Compression
+ark
+zip
+unzip
+
+# Partition compatibility and USB automount
+fuse2
+ntfs-3g
+udisks2
+udiskie
+gvfs
+
+# Printing/PDF (Remember to start and enable cups.socket)
+cups
+cups-pdf
+zathura
+zathura-pdf-mupdf
+
+# Config utilities
+piper
+nwg-look
+
+# Media
+pavucontrol
+feh
+playerctl
+vlc
+
+# Dev
+code
+python
+python-pip
+
+# Virtual machines (Remember to add the user to the vboxusers group)
+virtualbox
+virtualbox-host-modules-arch
+virtualbox-guest-iso
+
+# Gaming
+steam
+gamemode
+lib32-gamemode
+gamescope
+mangohud
+lib32-mangohud
+
+# Mail
+thunderbird
+thunderbird-i18n-es-es
+
+# LaTeX
+texlive-basic
+texlive-latex
+texlive-latexrecommended
+texlive-latexextra
+texlive-bibtexextra
+texlive-mathscience
+texlive-binextra
+texlive-langspanish
+
+# Fonts
+ttf-liberation
+lib32-fontconfig
+wqy-zenhei
+ttf-jetbrains-mono-nerd
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+noto-fonts-extra
+
+# Terminal utilities
+zsh
+wget
+fzf
+fastfetch
+btop
+jq
+
+# Etc
+dialog
+archlinux-keyring
