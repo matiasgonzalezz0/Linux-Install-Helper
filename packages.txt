@@ -10,6 +10,8 @@ bluez-utils
 blueman
 
 # WM utilities
+hyprland
+sddm
 polkit-gnome
 waybar
 wl-clipboard

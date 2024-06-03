@@ -23,4 +23,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 
+# SDDM
+sudo cp /usr/lib/sddm/sddm.conf.d/default.conf /etc/sddm.conf
+sudo systemctl enable sddm
+sudo systemctl start sddm
+
 echo "Done!"
