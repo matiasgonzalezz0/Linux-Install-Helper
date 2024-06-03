@@ -9,7 +9,7 @@ _packages_file=packages.txt
 _aur_packages_file=packages-aur.txt
 
 # Updates your system first
-sudo pacman -Syuu
+sudo pacman -Syu
 
 _packages=$(grep -v -E '^\s*$|^#' $_packages_file | sort)
 _aur_packages=$(grep -v -E '^\s*$|^#' $_aur_packages_file | sort)
