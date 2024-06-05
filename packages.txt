@@ -56,9 +56,14 @@ playerctl
 vlc
 
 # Dev
-code
+make
+gcc
+neovim
+tree-sitter
+tree-sitter-cli
 python
 python-pip
+code
 
 # Virtual machines (Remember to add the user to the vboxusers group)
 virtualbox
@@ -106,5 +111,6 @@ btop
 jq
 
 # Etc
+man-db
 dialog
 archlinux-keyring
