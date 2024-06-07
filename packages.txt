@@ -105,6 +105,7 @@ noto-fonts-extra
 # Terminal utilities
 zsh
 wget
+fd
 fzf
 fastfetch
 btop
