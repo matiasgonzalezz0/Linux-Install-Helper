@@ -54,6 +54,7 @@ pavucontrol
 feh
 playerctl
 vlc
+gimp
 
 # Dev
 make
