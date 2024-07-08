@@ -115,6 +115,7 @@ btop
 jq
 
 # Etc
+firefox
 man-db
 dialog
 archlinux-keyring
