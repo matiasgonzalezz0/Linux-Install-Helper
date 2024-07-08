@@ -11,7 +11,7 @@ blueman
 
 # WM utilities
 hyprland
-gt5-wayland
+qt5-wayland
 qt6-wayland
 sddm
 polkit-gnome
