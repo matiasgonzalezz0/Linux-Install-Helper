@@ -94,6 +94,7 @@ texlive-bibtexextra
 texlive-mathscience
 texlive-binextra
 texlive-langspanish
+texlive-xetex
 
 # Fonts
 ttf-liberation
