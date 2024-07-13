@@ -94,6 +94,7 @@ texlive-bibtexextra
 texlive-mathscience
 texlive-binextra
 texlive-langspanish
+texlive-xetex
 
 # Fonts
 ttf-liberation
@@ -115,6 +116,7 @@ btop
 jq
 
 # Etc
+firefox
 man-db
 dialog
 archlinux-keyring
