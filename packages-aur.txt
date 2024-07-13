@@ -8,6 +8,7 @@ rar
 # Applications
 spotify
 vesktop-bin
+ferdium-bin
 
 # Themes
 catppuccin-gtk-theme-mocha

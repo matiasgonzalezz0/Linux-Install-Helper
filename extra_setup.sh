@@ -26,6 +26,5 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 # SDDM
 sudo cp /usr/lib/sddm/sddm.conf.d/default.conf /etc/sddm.conf
 sudo systemctl enable sddm
-sudo systemctl start sddm
 
 echo "Done!"
