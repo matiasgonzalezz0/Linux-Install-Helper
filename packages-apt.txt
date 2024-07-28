@@ -1,6 +1,10 @@
 # DE
 kitty
 brave-browser
+dolphin
+vlc
+kate
+okular
 
 # Dev
 docker-ce
@@ -16,6 +20,11 @@ htop
 btop
 neofetch
 
+# Compression
+ark
+zip
+unzip
+
 # Etc
-build-essentials
+build-essential
 ca-certificates
