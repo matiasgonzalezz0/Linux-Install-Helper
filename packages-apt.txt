@@ -1,0 +1,21 @@
+# DE
+kitty
+brave-browser
+
+# Dev
+docker-ce
+docker-ce-cli
+containerd.io
+docker-buildx-plugin
+docker-compose-plugin
+
+# Terminal utilities
+zsh
+curl
+htop
+btop
+neofetch
+
+# Etc
+build-essentials
+ca-certificates

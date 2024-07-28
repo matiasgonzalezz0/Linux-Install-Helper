@@ -13,6 +13,8 @@
 # Change the variables below if you wish to change the file names:
 _filename_arch="packages-arch.txt"
 _filename_aur="packages-aur.txt"
+_filename_apt="packages-apt.txt"
+_filename_flatpak="packages-flatpak.txt"
 
 check_packages_arch() {
 	_packages=$(grep -v -E '^\s*$|^#' $_filename_arch | sort)
@@ -44,45 +46,96 @@ check_packages_aur() {
 	fi
 }
 
+check_packages_apt() {
+    _packages=$(grep -v -E '^\s*$|^#' "$_filename_apt" | sort)
+    _missing_packages=""
+
+    echo "$_packages" > /tmp/packages_list.txt
+
+    while IFS= read -r _package; do
+        if ! apt-cache show "$_package" &> /dev/null; then
+            _missing_packages+="$_package\n"
+        fi
+    done < /tmp/packages_list.txt
+
+    if [[ -n "$_missing_packages" ]]; then
+        echo "The following packages were not found in the apt repositories:"
+        echo -e "$_missing_packages"
+    else
+        echo "All packages exist in the apt repositories!"
+    fi
+}
+
+check_packages_flatpak() {
+    _packages=$(grep -v -E '^\s*$|^#' "$_filename_flatpak" | sort)
+    _missing_packages=""
+
+    echo "$_packages" > /tmp/packages_list.txt
+
+    while IFS= read -r _package; do
+        if ! flatpak search --columns=application $_package | grep "^$_package$" > /dev/null ; then
+            _missing_packages+="$_package\n"
+        fi
+    done < /tmp/packages_list.txt
+
+    if [[ -n "$_missing_packages" ]]; then
+        echo "The following packages were not found in the flatpak repositories:"
+        echo -e "$_missing_packages"
+    else
+        echo "All packages exist in the flatpak repositories!"
+    fi
+}
+
 check_packages_op() {
 	while true; do
 		_operation=0
 
-		while true; do
-			echo "###################################################"
-			echo "Select which packages you wish to check:"
-			echo "(1) Arch"
-			echo "(2) AUR"
-			echo ""
-			echo "(3) <- Go Back"
-			echo "###################################################"
+		echo "###################################################"
+		echo "Select which packages you wish to check:"
+		echo "(1) Arch"
+		echo "(2) AUR"
+		echo "(3) Apt"
+		echo "(4) Flatpak"
+		echo ""
+		echo "(q) <- Go Back"
+		echo "###################################################"
 
-			echo ""
-			echo -n "Op: "
-			read -r _operation
-			echo ""
-
-			case $_operation in
-				1|2|3)
-					break;;
-				*)
-					echo "Invalid Operation! Please enter a valid number";;
-			esac
-		done
+		echo ""
+		echo -n "Op: "
+		read -r _operation
+		echo ""
 
 		case $_operation in
 			1)
 				echo "###################################################"
 				check_packages_arch
 				echo "###################################################"
-				echo "";;
+				echo ""
+				;;
 			2)
 				echo "###################################################"
 				check_packages_aur
 				echo "###################################################"
-				echo "";;
+				echo ""
+				;;
 			3)
-				return;;
+				echo "###################################################"
+				check_packages_apt
+				echo "###################################################"
+				echo ""
+				;;
+			4)
+				echo "###################################################"
+				check_packages_flatpak
+				echo "###################################################"
+				echo ""
+				;;
+			q)
+				return
+				;;
+			*)
+				echo "Invalid Operation! Please enter a valid number"
+				;;
 		esac
 	done
 }
@@ -100,10 +153,31 @@ install_packages_arch() {
 }
 
 install_packages_aur() {
-	_aur_packages=$(grep -v -E '^\s*$|^#' $_filename_aur | sort)
+	_packages=$(grep -v -E '^\s*$|^#' $_filename_aur | sort)
 
 	echo "Installing packages from the AUR..."
-	yay -S --needed - < <(echo "$_aur_packages")
+	yay -S --needed - < <(echo "$_packages")
+	echo ""
+	echo "Installation completed!"
+}
+
+install_packages_apt() {
+	# Updates your system first
+	sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y
+
+	_packages=$(grep -v -E '^\s*$|^#' $_filename_apt | sort)
+
+	echo "Installing packages from the apt repositories..."
+	echo "$_packages" | xargs sudo apt install -y
+	echo ""
+	echo "Installation completed!"
+}
+
+install_packages_flatpak() {
+	_packages=$(grep -v -E '^\s*$|^#' $_filename_flatpak | sort)
+
+	echo "Installing packages from the apt repositories..."
+	flatpak install $_packages
 	echo ""
 	echo "Installation completed!"
 }
@@ -112,41 +186,50 @@ install_packages_op() {
 	while true; do
 		_operation=0
 
-		while true; do
-			echo "###################################################"
-			echo "Select which packages you wish to install:"
-			echo "(1) Arch"
-			echo "(2) AUR"
-			echo ""
-			echo "(3) <- Go Back"
-			echo "###################################################"
+		echo "###################################################"
+		echo "Select which packages you wish to install:"
+		echo "(1) Arch"
+		echo "(2) AUR"
+		echo "(3) Apt"
+		echo "(4) Flatpak"
+		echo ""
+		echo "(q) <- Go Back"
+		echo "###################################################"
 
-			echo ""
-			echo -n "Op: "
-			read -r _operation
-			echo ""
-
-			case $_operation in
-				1|2|3)
-					break;;
-				*)
-					echo "Invalid Operation! Please enter a valid number";;
-			esac
-		done
+		echo ""
+		echo -n "Op: "
+		read -r _operation
+		echo ""
 
 		case $_operation in
 			1)
 				echo "###################################################"
 				install_packages_arch
 				echo "###################################################"
-				echo "";;
+				echo ""
+				;;
 			2)
 				echo "###################################################"
 				install_packages_aur
 				echo "###################################################"
-				echo "";;
+				echo ""
+				;;
 			3)
+				echo "###################################################"
+				install_packages_apt
+				echo "###################################################"
+				echo ""
+				;;
+			4)
+				echo "###################################################"
+				install_packages_flatpak
+				echo "###################################################"
+				echo ""
+				;;
+			q)
 				return;;
+			*)
+				echo "Invalid Operation! Please enter a valid number";;
 		esac
 	done
 }
@@ -155,36 +238,32 @@ main() {
 	while true; do
 		_operation=0
 
-		while true; do
-			echo "###################################################"
-			echo "Select the operation you wish to make:"
-			echo "(1) Check packages existence"
-			echo "(2) Install packages"
-			echo ""
-			echo "(3) Exit script"
-			echo "###################################################"
+		echo "###################################################"
+		echo "Select the operation you wish to make:"
+		echo "(1) Check packages existence"
+		echo "(2) Install packages"
+		echo ""
+		echo "(q) Exit script"
+		echo "###################################################"
 
-			echo ""
-			echo -n "Op: "
-			read -r _operation
-			echo ""
-
-			case $_operation in
-				1|2|3)
-					break;;
-				*)
-					echo "Invalid Operation! Please enter a valid number";;
-			esac
-		done
-
+		echo ""
+		echo -n "Op: "
+		read -r _operation
+		echo ""
 
 		case $_operation in
 			1)
-				check_packages_op;;
+				check_packages_op
+				;;
 			2)
-				install_packages_op;;
-			3)
-				break;;
+				install_packages_op
+				;;
+			q)
+				return
+				;;
+			*)
+				echo "Invalid Operation! Please enter a valid number"
+				;;
 		esac
 	done
 

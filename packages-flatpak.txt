@@ -1,0 +1,5 @@
+org.mozilla.firefox
+org.ferdium.Ferdium
+dev.vencord.Vesktop
+com.getpostman.Postman
+io.dbeaver.DBeaverCommunity
