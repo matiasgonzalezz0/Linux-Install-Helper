@@ -5,6 +5,7 @@ dolphin
 vlc
 kate
 okular
+flameshot
 
 # Dev
 docker-ce
@@ -19,6 +20,7 @@ curl
 htop
 btop
 neofetch
+tree
 
 # Compression
 ark
@@ -28,3 +30,4 @@ unzip
 # Etc
 build-essential
 ca-certificates
+xclip
