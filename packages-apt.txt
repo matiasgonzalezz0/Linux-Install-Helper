@@ -31,3 +31,4 @@ unzip
 build-essential
 ca-certificates
 xclip
+ripgrep
