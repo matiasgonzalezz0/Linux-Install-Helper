@@ -66,6 +66,7 @@ neovim
 tree-sitter
 tree-sitter-cli
 python
+pyenv
 python-pip
 code
 

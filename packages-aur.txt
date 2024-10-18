@@ -22,3 +22,6 @@ virtualbox-ext-oracle
 # Terminal utilities
 gojq
 cava
+
+# Dev
+pyenv-virtualenv
