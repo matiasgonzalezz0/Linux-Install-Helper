@@ -24,6 +24,8 @@ htop
 btop
 neofetch
 tree
+fd-find
+# to make this package work with fd do "ln -s $(which fdfind) ~/.local/bin/fd"
 
 # Compression
 ark
