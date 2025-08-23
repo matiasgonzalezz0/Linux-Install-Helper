@@ -6,12 +6,17 @@ wallust-git
 rar
 
 # Applications
+zen-browser-bin
 spotify
+tidal-hifi-bin
 vesktop-bin
 ferdium-bin
 
 # Themes
-catppuccin-gtk-theme-mocha
+# catppuccin-gtk-theme-mocha
+
+# AMD GPU Fan
+radeon-profile-daemon-git
 
 # Office
 onlyoffice-bin
@@ -21,7 +26,6 @@ virtualbox-ext-oracle
 
 # Terminal utilities
 gojq
-cava
 
 # Dev
 pyenv-virtualenv

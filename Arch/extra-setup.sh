@@ -17,6 +17,13 @@ sudo systemctl start bluetooth.service
 # Virtual box
 sudo usermod -aG vboxusers $_user
 
+# Docker
+sudo usermod -aG docker $_user
+
+# Libvirt
+sudo systemctl enable libvirtd.service
+sudo usermod -aG libvirt $_user
+
 # Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # Oh My Zsh plugins
@@ -26,5 +33,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 # SDDM
 sudo cp /usr/lib/sddm/sddm.conf.d/default.conf /etc/sddm.conf
 sudo systemctl enable sddm
+
+# AMD GPU Fan Control
+sudo systemctl enable radeon-profile-daemon.service
 
 echo "Done!"

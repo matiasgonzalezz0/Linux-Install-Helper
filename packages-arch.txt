@@ -21,7 +21,6 @@ grim
 slurp
 rofi-wayland
 swaync
-hyprpaper
 swww
 kitty
 xdg-user-dirs
@@ -29,6 +28,7 @@ thunar
 thunar-archive-plugin
 xdg-desktop-portal-hyprland
 xorg-xwayland
+materia-gtk-theme
 
 # Compression
 ark
@@ -58,17 +58,22 @@ feh
 playerctl
 vlc
 gimp
+easyeffects
+lsp-plugins-lv2
+calf
 
 # Dev
 make
 gcc
 neovim
+docker
 tree-sitter
 tree-sitter-cli
 python
 pyenv
 python-pip
 code
+pnpm
 
 # Virtual machines (Remember to add the user to the vboxusers group)
 virtualbox
@@ -87,17 +92,6 @@ lib32-mangohud
 thunderbird
 thunderbird-i18n-es-es
 
-# LaTeX
-texlive-basic
-texlive-latex
-texlive-latexrecommended
-texlive-latexextra
-texlive-bibtexextra
-texlive-mathscience
-texlive-binextra
-texlive-langspanish
-texlive-xetex
-
 # Fonts
 ttf-liberation
 lib32-fontconfig
@@ -110,15 +104,26 @@ noto-fonts-extra
 
 # Terminal utilities
 zsh
+tmux
 wget
 fd
 fzf
 fastfetch
 btop
 jq
+nvtop
+imagemagick
+cava
 
 # Etc
 firefox
 man-db
 dialog
 archlinux-keyring
+
+# KVM GPU passthrough
+qemu-desktop
+libvirt
+edk2-ovmf
+virt-manager
+dnsmasq
