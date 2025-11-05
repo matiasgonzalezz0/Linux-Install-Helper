@@ -21,8 +21,8 @@ sudo usermod -aG vboxusers $_user
 sudo usermod -aG docker $_user
 
 # Libvirt
-sudo systemctl enable libvirtd.service
-sudo usermod -aG libvirt $_user
+# sudo systemctl enable libvirtd.service
+# sudo usermod -aG libvirt $_user
 
 # Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -35,6 +35,6 @@ sudo cp /usr/lib/sddm/sddm.conf.d/default.conf /etc/sddm.conf
 sudo systemctl enable sddm
 
 # AMD GPU Fan Control
-sudo systemctl enable radeon-profile-daemon.service
+# sudo systemctl enable radeon-profile-daemon.service
 
 echo "Done!"

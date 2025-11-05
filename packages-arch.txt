@@ -29,6 +29,7 @@ thunar-archive-plugin
 xdg-desktop-portal-hyprland
 xorg-xwayland
 materia-gtk-theme
+pipewire-pulse
 
 # Compression
 ark
@@ -122,8 +123,8 @@ dialog
 archlinux-keyring
 
 # KVM GPU passthrough
-qemu-desktop
-libvirt
-edk2-ovmf
-virt-manager
-dnsmasq
+# qemu-desktop
+# libvirt
+# edk2-ovmf
+# virt-manager
+# dnsmasq
