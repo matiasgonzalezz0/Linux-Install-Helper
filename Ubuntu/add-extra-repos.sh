@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Docker
+# START Docker (double check with official docs)
 # Add Docker's official GPG key:
 sudo apt update
 sudo apt install ca-certificates curl
@@ -16,5 +16,9 @@ Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
 Components: stable
 Signed-By: /etc/apt/keyrings/docker.asc
 EOF
+# END Docker
+
+# Go
+sudo add-apt-repository ppa:longsleep/golang-backports
 
 sudo apt update
