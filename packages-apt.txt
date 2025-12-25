@@ -1,9 +1,7 @@
 # DE
 kitty
-brave-browser
 dolphin
 vlc
-kate
 okular
 flameshot
 
@@ -13,16 +11,13 @@ docker-ce-cli
 containerd.io
 docker-buildx-plugin
 docker-compose-plugin
-python3
-python3-venv
-python3-djangorestframework
+tmux
 
 # Terminal utilities
 zsh
 curl
 htop
 btop
-neofetch
 tree
 fd-find
 # to make this package work with fd do "ln -s $(which fdfind) ~/.local/bin/fd"

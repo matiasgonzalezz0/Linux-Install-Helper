@@ -1,5 +1,5 @@
 org.mozilla.firefox
-org.ferdium.Ferdium
+app.zen_browser.zen
 dev.vencord.Vesktop
 com.getpostman.Postman
 io.dbeaver.DBeaverCommunity
