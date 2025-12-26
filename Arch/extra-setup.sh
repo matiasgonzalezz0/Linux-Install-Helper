@@ -34,6 +34,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 sudo cp /usr/lib/sddm/sddm.conf.d/default.conf /etc/sddm.conf
 sudo systemctl enable sddm
 
+# Create user directories
+xdg-user-dirs-update
+
 # AMD GPU Fan Control
 # sudo systemctl enable radeon-profile-daemon.service
 
