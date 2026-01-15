@@ -19,7 +19,7 @@ waybar
 wl-clipboard
 grim
 slurp
-rofi-wayland
+rofi
 swaync
 swww
 kitty
@@ -58,8 +58,8 @@ pavucontrol
 feh
 playerctl
 vlc
+vlc-plugins-all
 gimp
-easyeffects
 lsp-plugins-lv2
 calf
 
