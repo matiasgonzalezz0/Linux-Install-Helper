@@ -5,3 +5,4 @@ com.getpostman.Postman
 io.dbeaver.DBeaverCommunity
 org.chromium.Chromium
 org.onlyoffice.desktopeditors
+com.obsproject.Studio
