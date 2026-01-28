@@ -73,6 +73,7 @@ tree-sitter-cli
 python
 pyenv
 python-pip
+dbeaver
 code
 pnpm
 

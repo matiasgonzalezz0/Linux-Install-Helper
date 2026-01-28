@@ -8,15 +8,8 @@ rar
 # Applications
 zen-browser-bin
 spotify
-# tidal-hifi-bin
 vesktop-bin
-# ferdium-bin
-
-# Themes
-# catppuccin-gtk-theme-mocha
-
-# AMD GPU Fan
-# radeon-profile-daemon-git
+brave-bin
 
 # Office
 onlyoffice-bin
@@ -29,3 +22,4 @@ gojq
 
 # Dev
 pyenv-virtualenv
+postman-bin
