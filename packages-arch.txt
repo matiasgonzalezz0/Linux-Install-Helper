@@ -21,7 +21,7 @@ grim
 slurp
 rofi
 swaync
-swww
+awww
 kitty
 xdg-user-dirs
 thunar
@@ -76,6 +76,8 @@ python-pip
 dbeaver
 code
 pnpm
+nvm
+chromium
 
 # Virtual machines (Remember to add the user to the vboxusers group)
 virtualbox

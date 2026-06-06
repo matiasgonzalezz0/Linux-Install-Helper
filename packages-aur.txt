@@ -23,3 +23,4 @@ gojq
 # Dev
 pyenv-virtualenv
 postman-bin
+claude-code
