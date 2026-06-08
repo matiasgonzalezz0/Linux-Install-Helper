@@ -1,0 +1,20 @@
+# Compression
+rar
+
+# Applications
+zen-browser-bin
+spotify
+vesktop-bin
+
+# Dev
+postman-bin
+claude-code
+
+# Office
+onlyoffice-bin
+
+# Virtual Machines
+virtualbox-ext-oracle
+
+# Terminal utilities
+gojq

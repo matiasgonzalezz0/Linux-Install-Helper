@@ -1,0 +1,56 @@
+# Config utilities
+piper
+
+# Media
+vlc
+vlc-plugins-all
+gimp
+
+# Dev
+make
+gcc
+neovim
+docker
+tree-sitter
+tree-sitter-cli
+python
+python-pip
+code
+pnpm
+dbeaver
+chromium
+
+# Virtual machines (Remember to add the user to the vboxusers group)
+virtualbox
+virtualbox-host-modules-arch
+virtualbox-guest-iso
+
+# Gaming
+steam
+gamemode
+lib32-gamemode
+gamescope
+mangohud
+lib32-mangohud
+
+# Mail
+thunderbird
+thunderbird-i18n-es-es
+
+# Terminal utilities
+kitty
+zsh
+tmux
+wget
+fd
+fzf
+fastfetch
+btop
+jq
+nvtop
+imagemagick
+cava
+wl-clipboard
+
+# Etc
+firefox
