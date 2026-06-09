@@ -9,6 +9,7 @@ vesktop-bin
 # Dev
 postman-bin
 claude-code
+cursor-bin
 
 # Office
 onlyoffice-bin
