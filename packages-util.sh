@@ -86,6 +86,30 @@ check_packages_flatpak() {
     fi
 }
 
+compare_packages_arch() {
+	_packages=$(grep -h -v -E '^\s*$|^#' $_filename_arch $_filename_aur | sort -u)
+
+	# pacman -Qqe includes AUR packages, and pacman -T also accepts packages that provide a list entry
+	_not_in_lists=$(comm -23 <(pacman -Qqe | sort) <(echo "$_packages"))
+	_not_installed=$(pacman -T $_packages)
+
+	if [[ -z "$_not_in_lists" ]]; then
+		echo "All explicitly installed packages are in the lists!"
+	else
+		echo "The following packages are explicitly installed but not in the lists:"
+		echo "$_not_in_lists" | column
+	fi
+
+	echo ""
+
+	if [[ -z "$_not_installed" ]]; then
+		echo "All packages in the lists are installed!"
+	else
+		echo "The following packages are in the lists but not installed:"
+		echo "$_not_installed" | column
+	fi
+}
+
 check_packages_op() {
 	while true; do
 		_operation=0
@@ -176,7 +200,7 @@ install_packages_apt() {
 install_packages_flatpak() {
 	_packages=$(grep -v -E '^\s*$|^#' $_filename_flatpak | sort)
 
-	echo "Installing packages from the apt repositories..."
+	echo "Installing packages from flatpak..."
 	flatpak install $_packages
 	echo ""
 	echo "Installation completed!"
@@ -242,6 +266,7 @@ main() {
 		echo "Select the operation you wish to make:"
 		echo "(1) Check packages existence"
 		echo "(2) Install packages"
+		echo "(3) Compare installed packages with the lists (Arch/AUR)"
 		echo ""
 		echo "(q) Exit script"
 		echo "###################################################"
@@ -257,6 +282,12 @@ main() {
 				;;
 			2)
 				install_packages_op
+				;;
+			3)
+				echo "###################################################"
+				compare_packages_arch
+				echo "###################################################"
+				echo ""
 				;;
 			q)
 				return

@@ -10,13 +10,9 @@ rar
 zen-browser-bin
 spotify
 vesktop-bin
-brave-bin
 
 # Office
 onlyoffice-bin
-
-# Virtual Machines
-virtualbox-ext-oracle
 
 # Terminal utilities
 gojq
@@ -25,3 +21,5 @@ gojq
 pyenv-virtualenv
 postman-bin
 claude-code
+cursor-bin
+stably-orca-bin
