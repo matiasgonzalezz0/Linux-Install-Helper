@@ -126,3 +126,4 @@ cava
 firefox
 man-db
 archlinux-keyring
+openssh
