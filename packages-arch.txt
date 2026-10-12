@@ -57,6 +57,8 @@ feh
 playerctl
 vlc
 vlc-plugins-all
+# VLC: fixes video glitches on NVIDIA GPUs (remove it for other GPUs)
+libva-nvidia-driver
 gimp
 obs-studio
 obs-studio-plugin-browser
