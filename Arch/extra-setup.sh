@@ -16,6 +16,9 @@ sudo usermod -aG vboxusers $_user
 # Docker
 sudo usermod -aG docker $_user
 
+# SSH agent, one per login session (user unit, so no sudo)
+systemctl --user enable --now ssh-agent.socket
+
 # Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 # Oh My Zsh plugins
