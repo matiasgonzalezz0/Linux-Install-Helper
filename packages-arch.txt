@@ -95,6 +95,11 @@ gamescope
 mangohud
 lib32-mangohud
 
+# Wine
+wine
+wine-mono
+winetricks
+
 # Mail
 thunderbird
 thunderbird-i18n-es-es
