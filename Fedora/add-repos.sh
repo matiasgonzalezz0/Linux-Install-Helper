@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # Adds every third party repository needed by packages-dnf.txt and packages-flatpak.txt
 # Run this first, before installing any packages
@@ -12,7 +13,7 @@ sudo dnf install -y \
 
 # Fedora removes the patented codecs (H.264/HEVC), these bring them back:
 # Full ffmpeg (used by Firefox, Chromium, Dolphin thumbnails...)
-sudo dnf swap -y ffmpeg-free ffmpeg --allowerasing
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
 # AMD iGPU hardware video decoding, otherwise videos are decoded by the CPU (battery)
 sudo dnf install -y mesa-va-drivers-freeworld
 

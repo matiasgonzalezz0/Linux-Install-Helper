@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # Installs the NVIDIA driver from RPM Fusion (run add-repos.sh first)
 # akmod = the module is compiled locally on every kernel update (like nvidia-dkms on Arch)
@@ -9,6 +10,6 @@ sudo dnf install -y akmod-nvidia xorg-x11-drv-nvidia-cuda xorg-x11-drv-nvidia-li
 
 # Builds the module now instead of in the background, so it's ready before rebooting
 sudo akmods --force
-modinfo -F version nvidia || echo "The nvidia module was not built! Check /var/cache/akmods/nvidia/"
+modinfo -F version nvidia
 
-echo "Done! Reboot"
+echo "Done! Reboot, then run nvidia-smi to verify"
