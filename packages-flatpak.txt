@@ -1,8 +1,17 @@
-org.mozilla.firefox
+# Flathub (added by Fedora/add-repos.sh)
+
+# Applications
 app.zen_browser.zen
+com.spotify.Client
 dev.vencord.Vesktop
+
+# Media
+# Official OBS build: includes the browser source and NVENC
+com.obsproject.Studio
+
+# Office
+org.onlyoffice.desktopeditors
+
+# Dev
 com.getpostman.Postman
 io.dbeaver.DBeaverCommunity
-org.chromium.Chromium
-org.onlyoffice.desktopeditors
-com.obsproject.Studio

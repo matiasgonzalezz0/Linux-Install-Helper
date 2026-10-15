@@ -1,0 +1,88 @@
+# Fedora KDE packages (Fedora + RPM Fusion + third party repos)
+# Run Fedora/add-repos.sh first, otherwise the RPM Fusion/Docker/VS Code/Cursor packages won't be found
+# NVIDIA drivers are installed with Fedora/install-nvidia.sh
+
+# Compression
+zip
+unzip
+# RPM Fusion nonfree, lets Ark open .rar files
+unrar
+
+# Partition compatibility
+# Needed to run AppImages
+fuse-libs
+ntfs-3g
+
+# Config utilities
+piper
+
+# Media
+vlc
+# RPM Fusion: H.264/HEVC codecs for VLC
+vlc-plugins-freeworld
+gimp
+qbittorrent
+
+# Dev
+git
+make
+gcc
+gcc-c++
+neovim
+tree-sitter-cli
+wl-clipboard
+docker-ce
+docker-ce-cli
+containerd.io
+docker-buildx-plugin
+docker-compose-plugin
+python3-pip
+python3-tkinter
+code
+cursor
+chromium
+
+# pyenv: dependencies to build python versions
+patch
+zlib-ng-compat-devel
+bzip2-devel
+readline-devel
+sqlite-devel
+openssl-devel
+tk-devel
+libffi-devel
+xz-devel
+libuuid-devel
+gdbm-devel
+libnsl2-devel
+
+# Virtual machines (RPM Fusion, the akmod builds the kernel module)
+VirtualBox
+
+# Gaming (RPM Fusion nonfree)
+steam
+gamemode
+gamescope
+mangohud
+
+# Wine
+wine
+winetricks
+
+# Mail
+thunderbird
+
+# Terminal utilities
+kitty
+zsh
+tmux
+wget2-wget
+fd-find
+fzf
+fastfetch
+btop
+jq
+gojq
+nvtop
+ImageMagick
+cava

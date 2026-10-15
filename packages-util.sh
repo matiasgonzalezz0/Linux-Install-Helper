@@ -7,6 +7,7 @@
 # * The appropiate package manager/distribution
 # * For checking the aur packages you need to have the package `jq` installed
 # * For installing the aur packages you need to have the yay AUR helper (you can find a script to install it in this repository)
+# * For the dnf/flatpak packages on Fedora, run Fedora/add-repos.sh first
 
 # You must have files with the packages you want to check/install.
 # This files can have empty lines and comments that start with the character #.
@@ -15,6 +16,7 @@ _filename_arch="packages-arch.txt"
 _filename_aur="packages-aur.txt"
 _filename_apt="packages-apt.txt"
 _filename_flatpak="packages-flatpak.txt"
+_filename_dnf="packages-dnf.txt"
 
 check_packages_arch() {
 	_packages=$(grep -v -E '^\s*$|^#' $_filename_arch | sort)
@@ -86,6 +88,19 @@ check_packages_flatpak() {
     fi
 }
 
+check_packages_dnf() {
+	_packages=$(grep -v -E '^\s*$|^#' $_filename_dnf | sort)
+
+	_missing_packages=$(comm -23 <(echo "$_packages") <(dnf repoquery --available --qf '%{name}\n' $_packages 2> /dev/null | sort -u))
+
+	if [[ -z "$_missing_packages" ]]; then
+		echo "All packages exist in the enabled dnf repositories!"
+	else
+		echo "The following packages were not found in the enabled dnf repositories:"
+		echo "$_missing_packages"
+	fi
+}
+
 compare_packages_arch() {
 	_packages=$(grep -h -v -E '^\s*$|^#' $_filename_arch $_filename_aur | sort -u)
 
@@ -120,6 +135,7 @@ check_packages_op() {
 		echo "(2) AUR"
 		echo "(3) Apt"
 		echo "(4) Flatpak"
+		echo "(5) Dnf"
 		echo ""
 		echo "(q) <- Go Back"
 		echo "###################################################"
@@ -151,6 +167,12 @@ check_packages_op() {
 			4)
 				echo "###################################################"
 				check_packages_flatpak
+				echo "###################################################"
+				echo ""
+				;;
+			5)
+				echo "###################################################"
+				check_packages_dnf
 				echo "###################################################"
 				echo ""
 				;;
@@ -201,7 +223,19 @@ install_packages_flatpak() {
 	_packages=$(grep -v -E '^\s*$|^#' $_filename_flatpak | sort)
 
 	echo "Installing packages from flatpak..."
-	flatpak install $_packages
+	flatpak install flathub $_packages
+	echo ""
+	echo "Installation completed!"
+}
+
+install_packages_dnf() {
+	# Updates your system first
+	sudo dnf upgrade --refresh
+
+	_packages=$(grep -v -E '^\s*$|^#' $_filename_dnf | sort)
+
+	echo "Installing packages from the dnf repositories..."
+	sudo dnf install $_packages
 	echo ""
 	echo "Installation completed!"
 }
@@ -216,6 +250,7 @@ install_packages_op() {
 		echo "(2) AUR"
 		echo "(3) Apt"
 		echo "(4) Flatpak"
+		echo "(5) Dnf"
 		echo ""
 		echo "(q) <- Go Back"
 		echo "###################################################"
@@ -247,6 +282,12 @@ install_packages_op() {
 			4)
 				echo "###################################################"
 				install_packages_flatpak
+				echo "###################################################"
+				echo ""
+				;;
+			5)
+				echo "###################################################"
+				install_packages_dnf
 				echo "###################################################"
 				echo ""
 				;;
