@@ -91,7 +91,7 @@ check_packages_flatpak() {
 check_packages_dnf() {
 	_packages=$(grep -v -E '^\s*$|^#' $_filename_dnf | sort)
 
-	_missing_packages=$(comm -23 <(echo "$_packages") <(dnf repoquery --available --qf '%{name}\n' $_packages 2> /dev/null | sort -u))
+	_missing_packages=$(comm -23 <(echo "$_packages") <(dnf repoquery --available --qf '%{name}\n%{name}.%{arch}\n' $_packages | sort -u))
 
 	if [[ -z "$_missing_packages" ]]; then
 		echo "All packages exist in the enabled dnf repositories!"
