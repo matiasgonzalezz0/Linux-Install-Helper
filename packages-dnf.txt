@@ -28,6 +28,7 @@ git
 make
 gcc
 gcc-c++
+golang
 neovim
 tree-sitter-cli
 wl-clipboard
