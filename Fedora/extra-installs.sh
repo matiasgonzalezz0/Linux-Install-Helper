@@ -17,4 +17,10 @@ curl -fsSL https://pyenv.run | bash
 # Claude Code (native installer, auto updates)
 curl -fsSL https://claude.ai/install.sh | bash
 
+# JetBrains Mono Nerd Font (not packaged for Fedora)
+_font_dir="$HOME/.local/share/fonts/JetBrainsMonoNerd"
+mkdir -p "$_font_dir"
+curl -fsSL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz | tar -xJ -C "$_font_dir"
+fc-cache -f
+
 echo "Done! Remember to add the pyenv lines to your .zshrc: https://github.com/pyenv/pyenv#b-set-up-your-shell-environment-for-pyenv"
