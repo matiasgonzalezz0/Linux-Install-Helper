@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 # ASUS laptops only: asusctl (fan profiles, keyboard LEDs, battery charge limit, dGPU on/off) + ROG Control Center
 # Reference: https://asus-linux.org/guides/fedora-guide/
@@ -13,7 +14,7 @@ sudo systemctl enable --now asusd.service
 sudo dnf install -y cirrus-audio-firmware
 
 # Fedora uses tuned-ppd for power profiles, asus-linux supports power-profiles-daemon
-sudo dnf swap -y tuned-ppd power-profiles-daemon --allowerasing
+sudo dnf swap tuned-ppd power-profiles-daemon --allowerasing
 sudo systemctl enable --now power-profiles-daemon.service
 
 echo "Done!"
